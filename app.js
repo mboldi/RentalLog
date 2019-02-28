@@ -10,7 +10,7 @@ app.get('/login.html', function(req, res){
   res.sendfile('html/login.html');
 });
 
-app.get('/devices', function(req, res){
+app.get('/devices.html', function(req, res){
   res.sendfile('html/devices.html');
 });
 
