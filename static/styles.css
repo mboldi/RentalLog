@@ -1,0 +1,199 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+
+div.loginBox {
+  color: #2E9CCA;
+  background-color: #25274D;
+  border-radius: 15px;
+}
+
+p.line {
+  border-bottom: 1px solid white;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+a.forgotPassW {
+  color: #2E9CCA;
+}
+
+a.button {
+  background-color: #2E9CCA;
+  color: white;
+}
+
+a.button:hover {
+  background-color: #29648A;
+  color: white;
+}
+
+button.button {
+  background-color: #2E9CCA;
+  color: white;
+}
+
+button.button:hover {
+  background-color: #29648A;
+  color: white;
+}
+
+nav.navBar {
+  background-color: #25274D;
+  color: #ffffff;
+}
+
+
+
+/*
+nav.navBar a {
+  border-right: 1px solid #464866;
+
+  color: white;
+}
+
+nav.navBar a:hover {
+  background-color: #2E9CCA;
+}
+
+
+h1.title {
+  font-weight: 20;
+  font-size: 55px;
+}
+
+body {
+  margin: 0px;
+  font-family: Montserrat;
+  color: #25274D;
+}
+
+h1 {
+  font-size: 36px;
+}
+
+
+
+
+
+div.loginForm {
+  text-align: left;
+  font-style: normal;
+  font-size: 20px;
+  line-height: normal;
+  margin-left: 4%;
+}
+
+p.loginLabel {
+  margin-top: 15px;
+  margin-bottom: 0px;
+}
+
+a.forgotPassword {
+  margin-top: 5px;
+  margin-bottom: 15px;
+  font-size: 16px;
+  font-weight: lighter;
+}
+
+a.forgotPassword:hover {
+  font-weight: normal;
+}
+
+input {
+  background-color: #AAABB8;
+  color: #29648A;
+  border: 0px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 1%;
+  margin-top: 5px;
+  border-radius: 5px;
+  font-size: 20px;
+  width: 94%;
+}
+
+a.button {
+  background-color: #29648A;
+  color: #ffffff;
+  font-size: 24px;
+  text-decoration: none;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border-radius: 5px;
+  border-width: 0px;
+}
+
+a.button:hover {
+  background-color: #2E9CCA;
+}
+
+ul.navBar {
+  list-style-type: none;
+  margin: 0px;
+  padding: 0px;
+  overflow: hidden;
+  background-color: #25274D;
+}
+
+ul.navBar li {
+  float: left;
+}
+
+ul.navBar li a {
+  display: block;
+
+  padding-right: 15px;
+  padding-left: 15px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+
+  border-right: 1px solid #464866;
+
+  color: white;
+  text-decoration: none;
+  text-align: center;
+  font-size: 24px;
+}
+
+ul.navBar li a:hover:not(active) {
+  background-color: #464866;
+}
+
+ul.navBar li a:active {
+  background-color: #464866;
+}
+
+ul.navBar li.signOut {
+  border-left: 1px solid #464866;
+  float: right;
+}
+
+@media screen and (max-width: 600px) {
+  ul.navBar li.navBar, ul.navBar li {
+    float: none;
+  }
+}
+
+div.deviceList {
+  background-color: #AAABB8;
+  margin-right: 10px;
+  width: inherit;
+}
+
+div.deviceList ul {
+  list-style-type: none;
+  margin: 0px;
+  padding: 0px;
+  overflow: hidden;
+  background-color: #25274D;
+}
+
+div.deviceList li {
+  font-size: 24px;
+  text-align: center;
+  float: left;
+  display: block;
+
+  color: white;
+}
