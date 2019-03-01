@@ -1,58 +1,58 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat');
 
 div.loginBox {
-  color: #25274D;
-  /*background-color: #25274D;*/
-  border-radius: 15px;
+    color: #25274D;
+    /*background-color: #25274D;*/
+    border-radius: 15px;
 }
 
 p.line {
-  border-bottom: 1px solid white;
-  margin-top: 15px;
-  margin-bottom: 15px;
+    border-bottom: 1px solid white;
+    margin-top: 15px;
+    margin-bottom: 15px;
 }
 
 a.forgotPassW {
-  color: #2E9CCA;
+    color: #2E9CCA;
 }
 
 a.button {
-  background-color: #2E9CCA;
-  color: white;
+    background-color: #2E9CCA;
+    color: white;
 }
 
 a.button:hover {
-  background-color: #29648A;
-  color: white;
+    background-color: #29648A;
+    color: white;
 }
 
 button.button {
-  background-color: #2E9CCA;
-  color: white;
+    background-color: #2E9CCA;
+    color: white;
 }
 
 button.button:hover {
-  background-color: #29648A;
-  color: white;
+    background-color: #29648A;
+    color: white;
 }
 
 nav.navBar {
-  background-color: #25274D;
-  color: #ffffff;
+    background-color: #25274D;
+    color: #ffffff;
 }
 
 i.red {
-  color: #dc3545;
+    color: #dc3545;
 }
 
 i.green {
-  color: #28a745;
+    color: #28a745;
 }
 
 label.success {
-  color: #28a745;
+    color: #28a745;
 }
 
 label.fail {
-  color: #dc3545;
+    color: #dc3545;
 }
