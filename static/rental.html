@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bérlés</title>
+
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark justify-content-between navBar">
+        <a class="navbar-brand" href="devices.html">RentalLog</a>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link" href="rents.html">Bérlések</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="devices.html">Eszközök</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="rental.html">Bérlés</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Új eszköz</a>
+                </li>
+            </ul>
+        </div>
+
+        <form class="form-inline">
+            <a class="btn btn-info my-2 my-sm-0" href="login.html">Kijelentkezés</a>
+        </form>
+    </nav>
+
+    <div class="row">&nbsp;</div>
+
+    <div class="container">
+        <div class="row">
+            <h1>Új bérlés felvétele</h1>
+        </div>
+
+        <div class="row">&nbsp;</div>
+
+        <form>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="renter">Bérlő</label>
+                    <input type="name" class="form-control" id="renter" placeholder="Bérlő neve">
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-3">
+                    <label>Bérelni kívánt eszközök:</label>
+                </div>
+            </div>
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-5"><!--
+                        <div class="row">
+                            <input class="col-8 form-control mr-sm-2" type="search" placeholder="Keresés" aria-label="Search">
+                            <button class="col-3 btn btn-outline-success my-2 my-sm-0" type="submit">Keresés</button>
+                        </div>-->
+                        <div class="dropdown">
+                            <input class="col-8 form-control mr-sm-2 dropdown-toggle" id="searchDevices" data-toggle="dropdown" type="search" placeholder="Keresés" aria-label="Search" aria-haspopup="true" aria-expanded="false">
+
+                            <div class="dropdown-menu" aria-labelledby="searchDevices">
+                                <a class="dropdown-item" href="#">Sony PMW-320</a>
+                                <a class="dropdown-item" href="#">Sony PMW-EX3</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">&nbsp;</div>
+
+                <div class="row">
+                    <table class="table table-striped">
+                        <thead>
+                        <tr>
+                            <th scope="col">Eszköz neve</th>
+                            <th scope="col">Érték/db</th>
+                            <th scope="col">Bérelni kívánt mennyiség(db)</th>
+                            <th scope="col">Eltávolítás a listából</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                            <th scope="col">Sony PMW-320</th>
+                            <td scope="col">4 000 000 Ft</td>
+                            <td scope="col"><input class="form-control" type="number" placeholder="1" aria-label="quantity"></td>
+                            <td scope="col"><button class="btn btn-outline-warning" type="remove"><i class="far fa-trash-alt"></i></button></td>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <label for="renter">Visszavételezés várható időpontja:</label>
+                    <input type="date" class="form-control" id="bringBackDate" placeholder="2019.01.02.">
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <label>A bérlés összértéke: </label>
+                    <input type="text" class="form-control" id="sumPrice" placeholder="4 000 000 Ft" disabled>
+                </div>
+            </div>
+
+            <div class="form-row form-inline">
+                <button class="btn btn-success mr-sm-2" type="submit">Bérlés</button>
+                <a class="btn btn-outline-danger my-2" href="rents.html">Mégsem</a>
+            </div>
+        </form>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>

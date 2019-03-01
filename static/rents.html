@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Bérlések</title>
+
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark justify-content-between navBar">
+        <a class="navbar-brand" href="devices.html">RentalLog</a>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link" href="rents.html">Bérlések</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="devices.html">Eszközök</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="rental.html">Bérlés</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Új eszköz</a>
+                </li>
+            </ul>
+        </div>
+
+        <form class="form-inline">
+            <a class="btn btn-info my-2 my-sm-0" href="login.html">Kijelentkezés</a>
+        </form>
+    </nav>
+
+    <div class="row">&nbsp;</div>
+
+    <div class="container">
+        <div class="row">
+            <h1>Bérlések</h1>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-3">
+                <a class="btn btn-info" href="rental.html">Új bérlés</a>
+            </div><!--
+            <div class="col-sm-5">
+                &nbsp;
+            </div>
+            <div class="col-sm-4">
+                <form class=" my-2 my-lg-0">
+                    <div class="row">
+                        <input class="col-8 form-control mr-sm-2" type="search" placeholder="Keresés" aria-label="Search">
+                        <button class="col-3 btn btn-outline-success my-2 my-sm-0" type="submit">Keresés</button>
+                    </div>
+                </form>
+            </div> -->
+        </div>
+
+        <div class="row">&nbsp;</div>
+
+        <div class="row">
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Bérlő</th>
+                    <th scope="col">Kiadás dátuma</th>
+                    <th scope="col">Várható visszaérkezés</th>
+                    <th scope="col">Eszközök száma</th>
+                    <th scope="col">Megtekintés</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <th scope="row">1</th>
+                    <td>Kiss Géza</td>
+                    <td>2018.01.23.</td>
+                    <td>2018.02.13.</td>
+                    <td>12</td>
+                    <td><button type="button" class="btn btn-info">Megtekintés</button></td>
+                </tr>
+                <tr>
+                    <th scope="row">2</th>
+                    <td>Nagy János</td>
+                    <td>2018.01.24.</td>
+                    <td>2018.02.01.</td>
+                    <td>3</td>
+                    <td><button type="button" class="btn btn-info">Megtekintés</button></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>
