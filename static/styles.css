@@ -1,8 +1,8 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat');
 
 div.loginBox {
-  color: #2E9CCA;
-  background-color: #25274D;
+  color: #25274D;
+  /*background-color: #25274D;*/
   border-radius: 15px;
 }
 
