@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html>
+<html lang="hu">
 <head>
     <meta charset="UTF-8">
-    <title>Bérlések</title>
+    <title>Bérlés adatai</title>
 
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -38,71 +38,73 @@
         </form>
     </nav>
 
-    <div class="row">&nbsp;</div>
-
-    <div class="container">
+    <div class="container my-4">
         <div class="row">
-            <h1>Bérlések</h1>
+            <h1>Bérlés adatai <i class="far fa-times-circle red"></i></h1>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="renter">Bérlő</label>
+                <input type="name" class="form-control mr-sm-2" id="renter" placeholder="Kiss József" disabled>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="renter_email">Bérlő e-mail címe</label>
+                <input type="email" class="form-control mr-sm-2" id="renter_email" placeholder="kissjozsi@kissjozsef.hu" disabled>
+            </div>
         </div>
 
         <div class="row">
             <div class="col-sm-3">
-                <a class="btn btn-info" href="rental.html">Új bérlés</a>
-            </div><!--
-            <div class="col-sm-5">
-                &nbsp;
+                <label>Bérelt eszközök:</label>
             </div>
-            <div class="col-sm-4">
-                <form class=" my-2 my-lg-0">
-                    <div class="row">
-                        <input class="col-8 form-control mr-sm-2" type="search" placeholder="Keresés" aria-label="Search">
-                        <button class="col-3 btn btn-outline-success my-2 my-sm-0" type="submit">Keresés</button>
-                    </div>
-                </form>
-            </div> -->
         </div>
 
-        <div class="row">&nbsp;</div>
+        <div class="container">
 
-        <div class="row">
-            <table class="table table-striped">
-                <thead>
-                <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Bérlő</th>
-                    <th scope="col">Kiadás dátuma</th>
-                    <th scope="col">Várható visszaérkezés</th>
-                    <th scope="col">Visszaérkezés</th>
-                    <th scope="col">Eszközök száma</th>
-                    <th scope="col">Visszajött?</th>
-                    <th scope="col">Megtekintés</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>Kiss Géza</td>
-                    <td>2018.01.23.</td>
-                    <td>2018.02.13.</td>
-                    <td></td>
-                    <td>12</td>
-                    <td style="text-align: center"><i class="far fa-times-circle red"></i></td>
-                    <td><a class="btn btn-info" href="viewRent.html">Megtekintés</a></td>
-                </tr>
-                <tr>
-                    <th scope="row">2</th>
-                    <td>Nagy János</td>
-                    <td>2018.01.24.</td>
-                    <td>2018.02.01.</td>
-                    <td>2018.02.01.</td>
-                    <td>3</td>
-                    <td style="text-align: center"><i class="far fa-check-square green"></i></td>
-                    <td><a class="btn btn-info" href="viewRent.html">Megtekintés</a></td>
-                </tr>
-                </tbody>
-            </table>
+            <div class="row">
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+                        <th scope="col">Eszköz neve</th>
+                        <th scope="col">Érték/db</th>
+                        <th scope="col">Bérelt mennyiség(db)</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="col">Sony PMW-320</th>
+                            <td scope="col">4 000 000 Ft</td>
+                            <td scope="col"><input class="form-control" type="number" placeholder="1" aria-label="quantity" disabled></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group col-md-4">
+                <label for="renter">Visszavételezés várható időpontja:</label>
+                <input type="date" class="form-control" id="bringBackDate" placeholder="03/02/2019" disabled>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group col-md-4">
+                <label>A bérlés összértéke: </label>
+                <input type="text" class="form-control" id="sumPrice" placeholder="4 000 000 Ft" disabled>
+            </div>
+        </div>
+
+        <div class="form-row form-inline">
+            <a class="btn btn-info mr-sm-2" href="rents.html">OK</a>
+            <a class="btn btn-outline-warning my-2" href="rentBack.html">Visszavétel</a>
         </div>
     </div>
+
 
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>

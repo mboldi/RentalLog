@@ -40,3 +40,19 @@ nav.navBar {
   background-color: #25274D;
   color: #ffffff;
 }
+
+i.red {
+  color: #dc3545;
+}
+
+i.green {
+  color: #28a745;
+}
+
+label.success {
+  color: #28a745;
+}
+
+label.fail {
+  color: #dc3545;
+}
