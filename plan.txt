@@ -1,0 +1,98 @@
+routes:
+    - /                         bejelentkezés, vagy ha be van jelentkezve a felhasználó, akkor eszközök listázása oldal
+    - /login                    bejelentkező felület
+    - /register                 regisztrációs felület
+    - /forgotpassw              elfelejtett jelszó
+
+    - /device/list              eszközök listázása
+    - /device/edit/:id          eszköz szerkesztése
+    - /device/edit/:id/delete   eszköz törlése
+    - /device/new               új eszköz hozzáadása
+
+    - /rent/list                bérlések listázása
+    - /rent/view/:id            bérlés megtekintése
+    - /rent/back/:id            bérlés visszavétele
+    - /rent/new                 új bérlés
+
+
+GET /
+    mainRedirectMW
+
+GET, POST /login
+    checkUserLoginMW
+    renderMW
+
+GET, POST /register
+    addUserMW
+    renderMW
+
+GET, POST /forgotpassw
+    sendUserPasswMW
+    renderMW
+
+
+GET /device/list
+    authMW
+    getDeviceListMW
+    renderMW
+
+GET, POST /device/edit/:id
+    authMW
+    getDeviceMW
+    updateDeviceMW
+    renderMW
+
+GET, POST /device/new
+    authMW
+    updateDeviceMW
+    renderMW
+
+GET, POST /device/:id/delete
+    authMW
+    getDeviceMW
+    deleteDeviceMW
+
+
+GET /rent/list
+    authMW
+    getRentListMW
+    renderMW
+
+GET /rent/view/:id
+    authMW
+    getRentMW
+    renderMW
+
+GET, POST /rent/back/:id
+    authMW
+    getRentMW
+    rentBackMW
+    renderMW
+
+GET, POST /rent/new
+    authMW
+    addRentMW
+    renderMW
+
+
+Middlewares:
+    Generic:
+        authMW
+        renderMW
+        mainRedirectMW
+
+    User:
+        addUserMW
+        sendUserPasswMW
+
+    Device:
+        getDeviceListMW
+        getDeviceMW
+        updateDeviceMW
+        deleteDeviceMW
+
+    Rent:
+        getRentMW
+        getRentListMW
+        rentBackMW
+        addRentMW
