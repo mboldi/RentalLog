@@ -1,13 +1,11 @@
-var requireOption = require('../common').requireOption;
-
 /**
  * render
  * description
  */
 
-module.exports = function (objectrepository) {
+module.exports = function (objectrepository, viewName) {
 
-    return function (req, res, next) {
-        return next();
+    return function (req, res) {
+        res.end('Render: ' + viewName);
     };
 };

@@ -1,5 +1,5 @@
 /**
- * deleteDevice
+ * logout
  * description
  */
 

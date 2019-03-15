@@ -14,65 +14,69 @@ routes:
     - /rent/back/:id            bérlés visszavétele
     - /rent/new                 új bérlés
 
+outside routes:
+    GET /
+        mainRedirectMW
 
-GET /
-    mainRedirectMW
+    GET, POST /login
+        checkUserLoginMW
+        renderMW
 
-GET, POST /login
-    checkUserLoginMW
-    renderMW
+    GET /logout
+        logoutMW
 
-GET, POST /register
-    addUserMW
-    renderMW
+    GET, POST /register
+        addUserMW
+        renderMW
 
-GET, POST /forgotpassw
-    sendUserPasswMW
-    renderMW
+    GET, POST /forgotpassw
+        sendUserPasswMW
+        renderMW
 
+device routes:
+    GET /device/list
+        authMW
+        getDeviceListMW
+        renderMW
 
-GET /device/list
-    authMW
-    getDeviceListMW
-    renderMW
+    GET, POST /device/edit/:id
+        authMW
+        getDeviceMW
+        updateDeviceMW
+        renderMW
 
-GET, POST /device/edit/:id
-    authMW
-    getDeviceMW
-    updateDeviceMW
-    renderMW
+    GET, POST /device/new
+        authMW
+        updateDeviceMW
+        renderMW
 
-GET, POST /device/new
-    authMW
-    updateDeviceMW
-    renderMW
+    GET, POST /device/:id/delete
+        authMW
+        getDeviceMW
+        deleteDeviceMW
 
-GET, POST /device/:id/delete
-    authMW
-    getDeviceMW
-    deleteDeviceMW
+rent routes:
+    GET /rent/list
+        authMW
+        getRentListMW
+        renderMW
 
+    GET /rent/view/:id
+        authMW
+        getRentMW
+        renderMW
 
-GET /rent/list
-    authMW
-    getRentListMW
-    renderMW
+    GET, POST /rent/back/:id
+        authMW
+        getRentMW
+        rentBackMW
+        renderMW
 
-GET /rent/view/:id
-    authMW
-    getRentMW
-    renderMW
-
-GET, POST /rent/back/:id
-    authMW
-    getRentMW
-    rentBackMW
-    renderMW
-
-GET, POST /rent/new
-    authMW
-    addRentMW
-    renderMW
+    GET, POST /rent/new
+        authMW
+        getDeviceListMW
+        addRentMW
+        renderMW
 
 
 Middlewares:
@@ -80,6 +84,8 @@ Middlewares:
         authMW
         renderMW
         mainRedirectMW
+        checkUserLoginMW
+        logoutMW
 
     User:
         addUserMW

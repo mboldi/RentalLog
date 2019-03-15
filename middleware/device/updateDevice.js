@@ -1,5 +1,3 @@
-var requireOption = require('../common').requireOption;
-
 /**
  * updateDevice
  * description

@@ -1,5 +1,3 @@
-var requireOption = require('../common').requireOption;
-
 /**
  * mainRedirect
  * description
@@ -8,6 +6,6 @@ var requireOption = require('../common').requireOption;
 module.exports = function (objectrepository) {
 
     return function (req, res, next) {
-        return next();
+        return res.redirect('/login');//meg kell majd vizsgálni, hogy be van-e jelentkezve a felhasználó
     };
 };
