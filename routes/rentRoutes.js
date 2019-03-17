@@ -10,18 +10,27 @@ const rentBackMW = require('../middleware/rent/rentBack');
 module.exports = function (app) {
     let objectRepository = {};
 
+    /*
+    list rents
+     */
     app.get('/rent/list',
         authMW(objectRepository),
         getRentListMW(objectRepository),
         renderMW(objectRepository, 'rentList')
     );
 
+    /*
+    view rent with given id
+     */
     app.get('/rent/view/:id',
         authMW(objectRepository),
         getRentMW(objectRepository),
         renderMW(objectRepository, 'viewRent')
     );
 
+    /*
+    finish the renting
+     */
     app.use('/rent/back/:id',
         authMW(objectRepository),
         getRentMW(objectRepository),
@@ -29,6 +38,9 @@ module.exports = function (app) {
         renderMW(objectRepository, 'rentBack')
     );
 
+    /*
+    add new rent to the system
+     */
     app.use('/rent/new',
         authMW(objectRepository),
         //az eszkozok listázásához kell majd, hogy ki lehessen választani őket

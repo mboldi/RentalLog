@@ -10,12 +10,18 @@ module.exports = function (app) {
 
     let objectRepository = {};
 
+    /*
+    get the list of devices
+     */
     app.get('/device/list',
         authMW(objectRepository),
         getDeviceListMW(objectRepository),
         renderMW(objectRepository, 'deviceList')
     );
 
+    /*
+    get device that has the given id
+    */
     app.use('/device/edit/:id',
         authMW(objectRepository),
         getDeviceMW(objectRepository),
@@ -23,12 +29,18 @@ module.exports = function (app) {
         renderMW(objectRepository, 'editDevice')
     );
 
+    /*
+    add new device
+     */
     app.use('/device/new',
         authMW(objectRepository),
         updateDeviceMW(objectRepository),
         renderMW(objectRepository, 'newDevice')
     );
 
+    /*
+    delete device
+     */
     app.use('/device/:id/delete',
         authMW(objectRepository),
         getDeviceMW(objectRepository),
