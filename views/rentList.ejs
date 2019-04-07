@@ -1,0 +1,57 @@
+<% include header %>
+<% include navBar %>
+
+    <div class="container">
+        <div class="row">
+            <h1>Bérlések</h1>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-3">
+                <a class="btn btn-info" href="/rent/new">Új bérlés</a>
+            </div>
+        </div>
+
+        <div class="row">&nbsp;</div>
+
+        <div class="row">
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Bérlő</th>
+                    <th scope="col">Kiadás dátuma</th>
+                    <th scope="col">Várható visszaérkezés</th>
+                    <th scope="col">Visszaérkezés</th>
+                    <th scope="col">Eszközök száma</th>
+                    <th scope="col">Visszajött?</th>
+                    <th scope="col">Megtekintés</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <th scope="row">1</th>
+                    <td>Kiss Géza</td>
+                    <td>2018.01.23.</td>
+                    <td>2018.02.13.</td>
+                    <td></td>
+                    <td>12</td>
+                    <td style="text-align: center"><i class="far fa-times-circle red"></i></td>
+                    <td><a class="btn btn-info" href="/rent/view/1">Megtekintés</a></td>
+                </tr>
+                <tr>
+                    <th scope="row">2</th>
+                    <td>Nagy János</td>
+                    <td>2018.01.24.</td>
+                    <td>2018.02.01.</td>
+                    <td>2018.02.01.</td>
+                    <td>3</td>
+                    <td style="text-align: center"><i class="far fa-check-square green"></i></td>
+                    <td><a class="btn btn-info" href="/rent/view/2">Megtekintés</a></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+<% include footer %>

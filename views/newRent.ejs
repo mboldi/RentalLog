@@ -1,0 +1,92 @@
+<% include header %>
+<% include navBar %>
+
+    <div class="container my-4">
+        <div class="row">
+            <h1>Új bérlés felvétele</h1>
+        </div>
+
+        <form class="my-4">
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="renter">Bérlő</label>
+                    <input type="name" class="form-control mr-sm-2" id="renter" placeholder="Bérlő neve">
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="renter_email">Bérlő e-mail címe</label>
+                    <input type="email" class="form-control mr-sm-2" id="renter_email" placeholder="Bérlő e-mail címe">
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-3">
+                    <label>Bérelni kívánt eszközök:</label>
+                </div>
+            </div>
+
+            <div class="container">
+                <div class="row my-3">
+                    <div class="col-sm-5">
+                        <div class="dropdown">
+                            <input class="col-8 form-control mr-sm-2 dropdown-toggle" id="searchDevices" autocomplete="off" data-toggle="dropdown" type="search" placeholder="Keresés" aria-label="Search" aria-haspopup="true" aria-expanded="false">
+
+                            <div class="dropdown-menu col-8" aria-labelledby="searchDevices">
+                                <% data.forEach(function(device) {%>
+                                    <a class="dropdown-item" href="#"><%= device.name %></a>
+                                <% }); %>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">&nbsp;</div>
+
+                <div class="row">
+                    <table class="table table-striped">
+                        <thead>
+                        <tr>
+                            <th scope="col">Eszköz neve</th>
+                            <th scope="col">Érték/db</th>
+                            <th scope="col">Bérelni kívánt mennyiség(db)</th>
+                            <th scope="col">Eltávolítás a listából</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                            <% data.forEach(function(device) {%>
+                                <tr>
+                                    <th scope="row"><%= device.name %></th>
+                                    <td><%= device.price%> Ft</td>
+                                    <td scope="col"><input class="form-control" type="number" value="1" aria-label="quantity"></td>
+                                    <td scope="col"><button class="btn btn-outline-warning" type="remove"><i class="far fa-trash-alt"></i></button></td>
+                                </tr>
+                            <% }); %>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <label for="renter">Visszavételezés várható időpontja:</label>
+                    <input type="date" class="form-control" id="bringBackDate" placeholder="2019.01.02.">
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <label>A bérlés összértéke: </label>
+                    <input type="text" class="form-control" id="sumPrice" value="4 000 000 Ft" disabled>
+                </div>
+            </div>
+
+            <div class="form-row form-inline">
+                <button class="btn btn-success mr-sm-2" type="submit">Bérlés</button>
+                <a class="btn btn-outline-danger my-2" href="/rent/list">Mégsem</a>
+            </div>
+        </form>
+    </div>
+
+<% include footer %>

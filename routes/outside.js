@@ -23,7 +23,7 @@ module.exports = function (app) {
      */
     app.use('/login',
         checkUserLoginMW(objectRepository),
-        renderMW(objectRepository,'Login')
+        renderMW(objectRepository,'login')
     );
 
     /*
@@ -38,7 +38,7 @@ module.exports = function (app) {
      */
     app.use('/register',
         addUserMW(objectRepository),
-        renderMW(objectRepository, 'Register')
+        renderMW(objectRepository, 'register')
     );
 
     /*
@@ -46,7 +46,7 @@ module.exports = function (app) {
      */
     app.use('/forgotpassw',
         sendUserPasswMW(objectRepository),
-        renderMW(objectRepository, 'Forgotpassword')
+        renderMW(objectRepository, 'forgotPassword')
     );
 
 };

@@ -1,15 +1,17 @@
 const express = require('express');
 const app = new express();
 
-app.use(express.static('static'));
+app.set('view engine', 'ejs');
+
+//app.use(express.static('static'));
 /*
 app.get('/', function (req, res) {
-  res.sendFile(__dirname + "/static/login.html");
+  res.sendFile(__dirname + "/static/login.ejs");
 });*/
 
 require('./routes/deviceRoutes')(app);
-require('./routes/outside')(app);
 require('./routes/rentRoutes')(app);
+require('./routes/outside')(app);
 
 var port = 3000;
 app.listen(port, function() {

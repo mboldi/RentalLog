@@ -1,0 +1,59 @@
+<% include header %>
+<% include navBar %>
+
+
+<div class="row">&nbsp;</div>
+
+<div class="container">
+    <div class="row">
+        <h1>Eszközök</h1>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-3">
+            <a class="btn btn-info" href="/device/new">Új eszköz</a>
+        </div>
+        <div class="col-sm-5">
+            &nbsp;
+        </div>
+        <div class="col-sm-4">
+            <form class=" my-2 my-lg-0">
+                <div class="row">
+                    <input class="col-8 form-control mr-sm-2" type="search" placeholder="Keresés" aria-label="Search">
+                    <button class="col-3 btn btn-outline-success my-2 my-sm-0" type="submit">Keresés</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="row">&nbsp;</div>
+
+    <div class="row">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th scope="col">Név</th>
+                <th scope="col">Érték</th>
+                <th scope="col">db</th>
+                <th scope="col">db kiadva</th>
+                <th scope="col">Szerkesztés</th>
+                <th scope="col">Törlés</th>
+            </tr>
+            </thead>
+            <tbody>
+                <% data.forEach(function(device) {%>
+                    <tr>
+                        <th scope="row"><%= device.name %></th>
+                        <td><%= device.price%> Ft</td>
+                        <td><%= device.quantity%></td>
+                        <td><%= device.out%></td>
+                        <td><a href="editDevice.ejs" class="btn btn-warning">Szerkesztés</a></td>
+                        <td><button type="button" class="btn btn-danger">Törlés</button></td>
+                    </tr>
+                <% }); %>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<% include footer %>
