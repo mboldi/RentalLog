@@ -47,7 +47,7 @@
                         <td><%= device.price%> Ft</td>
                         <td><%= device.quantity%></td>
                         <td><%= device.out%></td>
-                        <td><a href="editDevice.ejs" class="btn btn-warning">Szerkesztés</a></td>
+                        <td><a href="/device/edit/<%= device._id %>" class="btn btn-warning">Szerkesztés</a></td>
                         <td><button type="button" class="btn btn-danger">Törlés</button></td>
                     </tr>
                 <% }); %>
