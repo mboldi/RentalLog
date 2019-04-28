@@ -3,7 +3,11 @@
  * description
  */
 
+const requireOption = require('../common').requireOption;
+
 module.exports = function (objectrepository) {
+
+    const deviceModel = requireOption(objectrepository, 'deviceModel');
 
     return function (req, res, next) {
         res.local = [
