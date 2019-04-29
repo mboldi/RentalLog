@@ -18,7 +18,6 @@
             <table class="table table-striped">
                 <thead>
                 <tr>
-                    <th scope="col">#</th>
                     <th scope="col">Bérlő</th>
                     <th scope="col">Kiadás dátuma</th>
                     <th scope="col">Várható visszaérkezés</th>
@@ -29,26 +28,17 @@
                 </tr>
                 </thead>
                 <tbody>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>Kiss Géza</td>
-                    <td>2018.01.23.</td>
-                    <td>2018.02.13.</td>
-                    <td></td>
-                    <td>12</td>
-                    <td style="text-align: center"><i class="far fa-times-circle red"></i></td>
-                    <td><a class="btn btn-info" href="/rent/view/1">Megtekintés</a></td>
-                </tr>
-                <tr>
-                    <th scope="row">2</th>
-                    <td>Nagy János</td>
-                    <td>2018.01.24.</td>
-                    <td>2018.02.01.</td>
-                    <td>2018.02.01.</td>
-                    <td>3</td>
-                    <td style="text-align: center"><i class="far fa-check-square green"></i></td>
-                    <td><a class="btn btn-info" href="/rent/view/2">Megtekintés</a></td>
-                </tr>
+                <% data.forEach(function (rent) { %>
+                    <tr>
+                        <td><%= rent.renter_name %></td>
+                        <td><%= rent.out_date %></td>
+                        <td><%= rent.planned_back_date %></td>
+                        <td><%= rent.actual_back_date %></td>
+                        <td><%= rent.num_of_items %></td>
+                        <td style="text-align: center"><i class="far <% if(typeof rent.actual_back_date !== 'undefined') {  %> fa-check-square green <%} else { %> fa-times-circle red <% } %>  "></i></td>
+                        <td><a class="btn btn-info" href="/rent/view/<%= rent._id%>">Megtekintés</a></td>
+                    </tr>
+                <%  }); %>
                 </tbody>
             </table>
         </div>

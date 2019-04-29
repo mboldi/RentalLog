@@ -3,20 +3,20 @@
 
     <div class="container my-4">
         <div class="row">
-            <h1>Bérlés adatai <i class="far fa-times-circle red"></i></h1>
+            <h1>Bérlés adatai <i class="far <% if(typeof data.actual_back_date !== 'undefined') {  %> fa-check-square green <%} else { %> fa-times-circle red <% } %>"></i></h1>
         </div>
 
         <div class="form-row">
             <div class="form-group col-md-6">
                 <label for="renter">Bérlő</label>
-                <input type="name" class="form-control mr-sm-2" id="renter" value="Kiss József" disabled>
+                <input type="name" class="form-control mr-sm-2" id="renter" value="<%= data.renter_name %>" disabled>
             </div>
         </div>
 
         <div class="form-row">
             <div class="form-group col-md-6">
                 <label for="renter_email">Bérlő e-mail címe</label>
-                <input type="email" class="form-control mr-sm-2" id="renter_email" value="kissjozsi@kissjozsef.hu" disabled>
+                <input type="email" class="form-control mr-sm-2" id="renter_email" value="<%= data.renter_email %>" disabled>
             </div>
         </div>
 
@@ -38,11 +38,13 @@
                     </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <th scope="col">Sony PMW-320</th>
-                            <td scope="col">4 000 000 Ft</td>
-                            <td scope="col"><input class="form-control" type="number" placeholder="1" aria-label="quantity" disabled></td>
-                        </tr>
+                        <% data.devices.forEach(function (device) { %>
+                            <tr>
+                                <th scope="col"><%= device['name'] %></th>
+                                <td scope="col"><%= device['value'] %> Ft</td>
+                                <td scope="col"><input class="form-control" type="number" placeholder="<%= device['rentQt'] %>" aria-label="quantity" disabled></td>
+                            </tr>
+                        <%});%>
                     </tbody>
                 </table>
             </div>
@@ -50,21 +52,28 @@
 
         <div class="form-row">
             <div class="form-group col-md-4">
+                <label for="renter">Kiadás időpontja:</label>
+                <input type="text" class="form-control" id="bringBackDate" placeholder="<%= data.out_date %>" disabled>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group col-md-4">
                 <label for="renter">Visszavételezés várható időpontja:</label>
-                <input type="date" class="form-control" id="bringBackDate" placeholder="03/02/2019" disabled>
+                <input type="text" class="form-control" id="bringBackDate" placeholder="<%= data.planned_back_date %>" disabled>
             </div>
         </div>
 
         <div class="form-row">
             <div class="form-group col-md-4">
                 <label>A bérlés összértéke: </label>
-                <input type="text" class="form-control" id="sumPrice" placeholder="4 000 000 Ft" disabled>
+                <input type="text" class="form-control" id="sumPrice" placeholder="<%= data.total_value %> Ft" disabled>
             </div>
         </div>
 
         <div class="form-row form-inline">
             <a class="btn btn-info mr-sm-2" href="/rent/list">OK</a>
-            <a class="btn btn-outline-warning my-2" href="/rent/back/1">Visszavétel</a>
+            <a class="btn btn-outline-warning my-2" href="/rent/back/<%= data.id %>">Visszavétel</a>
         </div>
     </div>
 

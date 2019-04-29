@@ -5,8 +5,11 @@ const Rent = db.model('rent', {
     renter_name: String,
     renter_email: String,
     rented_items: Array,
-    planned_back_date: Date,
-    actual_back_date: Date
+    num_of_items: Number,
+    out_date: String,
+    planned_back_date: String,
+    actual_back_date: String,
+    total_value: Number
 });
 
 module.exports = Rent;
