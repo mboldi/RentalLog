@@ -44,11 +44,11 @@
                 <% data.forEach(function(device) {%>
                     <tr>
                         <th scope="row"><%= device.name %></th>
-                        <td><%= device.price%> Ft</td>
+                        <td><%= device.value%> Ft</td>
                         <td><%= device.quantity%></td>
                         <td><%= device.out%></td>
                         <td><a href="/device/edit/<%= device._id %>" class="btn btn-warning">Szerkesztés</a></td>
-                        <td><button type="button" class="btn btn-danger">Törlés</button></td>
+                        <td><a href="/device/<%= device._id %>/delete/" class="btn btn-danger">Törlés</a></td>
                     </tr>
                 <% }); %>
             </tbody>

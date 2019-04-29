@@ -10,7 +10,7 @@ app.set('view engine', 'ejs');
 app.use(session({
   secret: 'kakaoscsiga',
   cookie: {
-    maxAge: 60000
+    maxAge: 6000000
   },
   resave: true,
   saveUninitialized: false
