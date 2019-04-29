@@ -1,8 +1,7 @@
 const Schema = require('mongoose').Schema;
-const db = require('../config/db');
+let db = require('../config/db');
 
-const User = db.model('user', {
-    _id: Number,
+let User = db.model('user', {
     name: String,
     password: String,
     email: String

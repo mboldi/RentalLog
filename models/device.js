@@ -1,8 +1,7 @@
 const Schema = require('mongoose').Schema;
-const db = require('../config/db');
+let db = require('../config/db');
 
-const Device = db.model('device', {
-    _id: Number,
+let Device = db.model('device', {
     name: String,
     value: Number,
     quantity: Number

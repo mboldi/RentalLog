@@ -17,7 +17,6 @@ app.use(session({
 }));
 
 app.use(bodyParser.json());
-// for parsing application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({
   extended: true
 }));
@@ -26,7 +25,7 @@ require('./routes/deviceRoutes')(app);
 require('./routes/rentRoutes')(app);
 require('./routes/outside')(app);
 
-var port = 3000;
+const port = 3000;
 app.listen(port, function() {
   console.log('Server listening on port ' + port);
 });

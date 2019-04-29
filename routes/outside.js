@@ -6,10 +6,17 @@ const logoutMW = require('../middleware/generic/logout');
 const addUserMW = require('../middleware/user/addUser');
 const sendUserPasswMW = require('../middleware/user/sendUserPassw');
 
+const deviceModel = require('../models/device');
+const rentModel = require('../models/rent');
+const userModel = require('../models/user');
 
 module.exports = function (app) {
 
-    let objectRepository = {};
+    let objectRepository = {
+        userModel: userModel,
+        rentModel: rentModel,
+        deviceModel: deviceModel
+    };
 
     /*
     main page, redirects to login if not logged in, otherwise to devicelist

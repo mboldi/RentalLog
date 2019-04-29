@@ -6,9 +6,17 @@ const getDeviceMW = require('../middleware/device/getDevice');
 const getDeviceListMW = require('../middleware/device/getDeviceList');
 const deleteDeviceMW = require('../middleware/device/deleteDevice');
 
+const deviceModel = require('../models/device');
+const rentModel = require('../models/rent');
+const userModel = require('../models/user');
+
 module.exports = function (app) {
 
-    let objectRepository = {};
+    let objectRepository = {
+        userModel: userModel,
+        rentModel: rentModel,
+        deviceModel: deviceModel
+    };
 
     /*
     get the list of devices

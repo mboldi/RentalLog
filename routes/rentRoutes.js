@@ -7,8 +7,17 @@ const getRentMW = require('../middleware/rent/getRent');
 const getRentListMW = require('../middleware/rent/getRentList');
 const rentBackMW = require('../middleware/rent/rentBack');
 
+const deviceModel = require('../models/device');
+const rentModel = require('../models/rent');
+const userModel = require('../models/user');
+
 module.exports = function (app) {
-    let objectRepository = {};
+
+    let objectRepository = {
+        userModel: userModel,
+        rentModel: rentModel,
+        deviceModel: deviceModel
+    };
 
     /*
     list rents
