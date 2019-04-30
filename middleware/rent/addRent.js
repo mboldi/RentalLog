@@ -18,15 +18,11 @@ module.exports = function (objectrepository) {
 
                 result.forEach(device => {
                     if(req.body[device._id] !== "0") {
-                        //quantities[device._id] = req.body[device._id];
-                        /*let deviceData = {};
-                        deviceData[device._id] = req.body[device._id];*/
-
                         quantities.push({   'id': device._id,
                                             'quantity': req.body[device._id]});
 
                         numofItems += parseInt(req.body[device._id]);
-                        totalValue += parseInt(device.value);
+                        totalValue += parseInt(device.value) * parseInt(req.body[device._id]);
                     }
                 });
 

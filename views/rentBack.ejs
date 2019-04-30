@@ -6,18 +6,18 @@
             <h1>Bérlés visszavétele</h1>
         </div>
 
-        <form class="my-4">
+        <form class="my-4" method="post">
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="renter">Bérlő</label>
-                    <input type="name" class="form-control mr-sm-2" id="renter" value="Kiss József" disabled>
+                    <input type="name" class="form-control mr-sm-2" id="renter" value="<%= data.renter_name %>" disabled>
                 </div>
             </div>
 
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="renter_email">Bérlő e-mail címe</label>
-                    <input type="email" class="form-control mr-sm-2" id="renter_email" value="kissjozsi@kissjozsef.hu" disabled>
+                    <input type="email" class="form-control mr-sm-2" id="renter_email" value="<%= data.renter_email %>" disabled>
                 </div>
             </div>
 
@@ -32,32 +32,36 @@
                     <table class="table table-striped">
                         <thead>
                         <tr>
+                            <th scope="col">#</th>
                             <th scope="col">Eszköz neve</th>
                             <th scope="col">Érték/db</th>
-                            <th scope="col">Bérelnt mennyiség (db)</th>
+                            <th scope="col">Bérelt mennyiség (db)</th>
                             <th scope="col">Megvan?</th>
                         </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <th scope="col">Sony PMW-320</th>
-                                <td scope="col">4 000 000 Ft</td>
-                                <td scope="col"><input class="form-control" type="number" value="1" aria-label="quantity" disabled></td>
-                                <td scope="col">
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox">
-                                    </div>
-                                </td>
-                            </tr>
+                            <% data.devices.forEach(function (device) { %>
+                                <tr>
+                                    <th scope="col"><%= device['ind'] %></th>
+                                    <th scope="col"><%= device['name'] %></th>
+                                    <td><%= device['value'] %> Ft</td>
+                                    <td><input class="form-control" type="number" placeholder="<%= device['rentQt'] %>" aria-label="quantity" disabled></td>
+                                    <td>
+                                        <div class="form-check">
+                                            <input name="<%= device['_id']%>" class="form-check-input" type="checkbox">
+                                        </div>
+                                    </td>
+                                </tr>
+                            <%});%>
                         </tbody>
                     </table>
                 </div>
             </div>
-
+<!--
             <div class="row">
                 <label class="success">Visszajött eszközök száma/összes elvitt eszköz: 1/1</label>
             </div>
-
+-->
             <div class="form-row form-inline">
                 <button class="btn btn-success mr-sm-2" type="submit">Visszavétel</button>
                 <a class="btn btn-outline-danger my-2" href="/rent/list">Mégsem</a>
