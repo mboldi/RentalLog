@@ -18,20 +18,33 @@ module.exports = function (objectrepository) {
                     res.local = result;
                     res.local.devices = [];
 
+                    let ind = 1;
+                    const itemNum = result.rented_items.length;
+
                     result.rented_items.forEach(item => {
                         let currDevice = {};
 
                         deviceModel.findOne(
                             {_id: item.id},
                             function (err, result) {
-                                currDevice['name'] = result.name;
-                                currDevice['value'] = result.value;
-                                currDevice['rentQt'] = item.quantity;
+                                if(result !== null) {
+                                    currDevice['ind'] = ind++;
+                                    currDevice['name'] = result.name;
+                                    currDevice['value'] = result.value;
+                                    currDevice['rentQt'] = item.quantity;
+                                    currDevice['_id'] = result._id;
 
-                                res.local.devices.push(currDevice);
+                                    res.local.devices.push(currDevice);
+
+                                    if (res.local.devices.length === itemNum) {
+                                        return next();
+                                    }
+                                }
                             });
                     });
 
+                }
+                else {
                     return next();
                 }
             });

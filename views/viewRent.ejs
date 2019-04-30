@@ -32,6 +32,7 @@
                 <table class="table table-striped">
                     <thead>
                     <tr>
+                        <th scope="col">#</th>
                         <th scope="col">Eszköz neve</th>
                         <th scope="col">Érték/db</th>
                         <th scope="col">Bérelt mennyiség(db)</th>
@@ -40,9 +41,10 @@
                     <tbody>
                         <% data.devices.forEach(function (device) { %>
                             <tr>
+                                <th scope="col"><%= device['ind'] %></th>
                                 <th scope="col"><%= device['name'] %></th>
-                                <td scope="col"><%= device['value'] %> Ft</td>
-                                <td scope="col"><input class="form-control" type="number" placeholder="<%= device['rentQt'] %>" aria-label="quantity" disabled></td>
+                                <td><%= device['value'] %> Ft</td>
+                                <td><input class="form-control" type="number" placeholder="<%= device['rentQt'] %>" aria-label="quantity" disabled></td>
                             </tr>
                         <%});%>
                     </tbody>
@@ -57,12 +59,23 @@
             </div>
         </div>
 
+        <% if(typeof data.actual_back_date !== 'undefined') {  %>
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <label>Visszaérkezés: </label>
+                    <input type="text" class="form-control" id="sumPrice" placeholder="<%= data.actual_back_date %>" disabled>
+                </div>
+            </div>
+        <% } else { %>
+
         <div class="form-row">
             <div class="form-group col-md-4">
                 <label for="renter">Visszavételezés várható időpontja:</label>
                 <input type="text" class="form-control" id="bringBackDate" placeholder="<%= data.planned_back_date %>" disabled>
             </div>
         </div>
+
+        <%}%>
 
         <div class="form-row">
             <div class="form-group col-md-4">
@@ -73,8 +86,11 @@
 
         <div class="form-row form-inline">
             <a class="btn btn-info mr-sm-2" href="/rent/list">OK</a>
-            <a class="btn btn-outline-warning my-2" href="/rent/back/<%= data.id %>">Visszavétel</a>
+            <% if(typeof data.actual_back_date === 'undefined') {  %>
+                <a class="btn btn-outline-warning my-2" href="/rent/back/<%= data.id %>">Visszavétel</a>
+            <% } %>
         </div>
+
     </div>
 
 <% include footer %>>
