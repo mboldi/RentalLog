@@ -5,6 +5,7 @@ module.exports = function (objectrepository) {
 
     const rentModel = requireOption(objectrepository, 'rentModel');
     const deviceModel = requireOption(objectrepository, 'deviceModel');
+    const userModel = requireOption(objectrepository, 'userModel');
 
     return function (req, res, next) {
         let newRent = new rentModel();
@@ -23,6 +24,9 @@ module.exports = function (objectrepository) {
 
                         numofItems += parseInt(req.body[device._id]);
                         totalValue += parseInt(device.value) * parseInt(req.body[device._id]);
+
+                        device.out = parseInt(device.out) + parseInt(req.body[device._id]);
+                        device.save();
                     }
                 });
 
@@ -34,9 +38,18 @@ module.exports = function (objectrepository) {
                 newRent.num_of_items = numofItems;
                 newRent.total_value = totalValue;
 
-                newRent.save(function (err) {
-                    return res.redirect('/rent/list');
-                });
+                userModel.findOne(
+                    {_id: req.session.userid},
+                    function (err, result) {
+                        newRent.issuer_name = result.name;
+
+                        newRent.save(function (err) {
+                            return res.redirect('/rent/list');
+                        });
+                    }
+                );
+
+
             });
         }
         else {

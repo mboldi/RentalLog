@@ -22,6 +22,7 @@ module.exports = function (objectrepository) {
             device.name = req.query.deviceName;
             device.value = req.query.deviceValue;
             device.quantity = req.query.deviceQuantity;
+            device.out = 0;
 
             device.save(function(err) {
                 return res.redirect('/device/list');

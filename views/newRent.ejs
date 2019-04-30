@@ -51,7 +51,7 @@
                             <th scope="col">Eszköz neve</th>
                             <th scope="col">Érték/db</th>
                             <th scope="col">Bérelni kívánt mennyiség(db)</th>
-                            <th scope="col">Eltávolítás a listából</th>
+                            <!--<th scope="col">Eltávolítás a listából</th>-->
                         </tr>
                         </thead>
                         <tbody>
@@ -60,7 +60,7 @@
                                     <th scope="row"><%= device.name %></th>
                                     <td><%= device.value%> Ft</td>
                                     <td scope="col"><input class="form-control" type="number" name="<%= device._id %>" value="0" min="0" max="<%= device.quantity%>" aria-label="quantity"></td>
-                                    <td scope="col"><button class="btn btn-outline-warning" type="remove"><i class="far fa-trash-alt"></i></button></td>
+                                    <!--<td scope="col"><button class="btn btn-outline-warning" type="remove"><i class="far fa-trash-alt"></i></button></td>-->
                                 </tr>
                             <% }); %>
                         </tbody>

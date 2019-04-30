@@ -20,6 +20,7 @@
                 <tr>
                     <th scope="col">Bérlő</th>
                     <th scope="col">Kiadás dátuma</th>
+                    <th scope="col">Kiadta</th>
                     <th scope="col">Várható visszaérkezés</th>
                     <th scope="col">Visszaérkezés</th>
                     <th scope="col">Eszközök száma</th>
@@ -32,6 +33,7 @@
                     <tr>
                         <td><%= rent.renter_name %></td>
                         <td><%= rent.out_date %></td>
+                        <td><%= rent.issuer_name %></td>
                         <td><%= rent.planned_back_date %></td>
                         <td><%= rent.actual_back_date %></td>
                         <td><%= rent.num_of_items %></td>
