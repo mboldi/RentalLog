@@ -35,7 +35,7 @@
                 <th scope="col">Név</th>
                 <th scope="col">Érték</th>
                 <th scope="col">db</th>
-                <th scope="col">db kiadva</th>
+                <!--<th scope="col">db kiadva</th>-->
                 <th scope="col">Szerkesztés</th>
                 <th scope="col">Törlés</th>
             </tr>
@@ -46,7 +46,7 @@
                         <th scope="row"><%= device.name %></th>
                         <td><%= device.value%> Ft</td>
                         <td><%= device.quantity%></td>
-                        <td><%= device.out%></td>
+                        <!--<td><%= device.out%></td>-->
                         <td><a href="/device/edit/<%= device._id %>" class="btn btn-warning">Szerkesztés</a></td>
                         <td><a href="/device/<%= device._id %>/delete/" class="btn btn-danger">Törlés</a></td>
                     </tr>
