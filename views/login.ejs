@@ -18,6 +18,12 @@
                 <input type="password" name="password" class="form-control" id="password" aria-describedby="emailHelp" placeholder="Jelszó">
             </div>
 
+            <% if (typeof data.error !== 'undefined') { %>
+                <div class="alert alert-danger" role="alert">
+                    <%= data.error %>
+                </div>
+            <% }%>
+
             <div class="alert alert-light">
                 <a class="alert-link" href="/forgotPassW">Elfelejtett jelszó</a>
             </div>
