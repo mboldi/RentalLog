@@ -12,10 +12,13 @@ module.exports = function (objectrepository, filter) {
     return function (req, res, next) {
 
         deviceModel.find(function (err, result) {
-            if(typeof result === 'undefined')
+            if (typeof result === 'undefined') {
                 res.local = [];
-            else
+                res.local.devices = [];
+            } else {
                 res.local = result;
+                res.local.devices = result;
+            }
 
             return next();
         });

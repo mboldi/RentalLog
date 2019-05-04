@@ -6,6 +6,7 @@ const addRentMW = require('../middleware/rent/addRent');
 const getRentMW = require('../middleware/rent/getRent');
 const getRentListMW = require('../middleware/rent/getRentList');
 const rentBackMW = require('../middleware/rent/rentBack');
+const countOutsMW = require('../middleware/device/countOuts');
 
 const deviceModel = require('../models/device');
 const rentModel = require('../models/rent');
@@ -44,6 +45,13 @@ module.exports = function (app) {
         authMW(objectRepository),
         getRentMW(objectRepository),
         rentBackMW(objectRepository),
+        //countOutsMW(objectRepository),
+        /*function (req, res, next) {
+            if(res.local.rentChange === 1)
+                return res.redirect('/rent/list');
+            else
+                return next();
+        },*/
         renderMW(objectRepository, 'rentBack')
     );
 
@@ -55,6 +63,7 @@ module.exports = function (app) {
         //az eszkozok listázásához kell majd, hogy ki lehessen választani őket
         getDeviceListMW(objectRepository),
         addRentMW(objectRepository),
+        //countOutsMW(objectRepository),
         renderMW(objectRepository, 'newRent')
     );
 };

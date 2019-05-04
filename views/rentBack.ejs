@@ -34,7 +34,6 @@
                         <tr>
                             <th scope="col">#</th>
                             <th scope="col">Eszköz neve</th>
-                            <th scope="col">Érték/db</th>
                             <th scope="col">Bérelt mennyiség (db)</th>
                             <th scope="col">Megvan?</th>
                         </tr>
@@ -44,7 +43,6 @@
                                 <tr>
                                     <th scope="col"><%= device['ind'] %></th>
                                     <th scope="col"><%= device['name'] %></th>
-                                    <td><%= device['value'] %> Ft</td>
                                     <td><input class="form-control" type="number" placeholder="<%= device['rentQt'] %>" aria-label="quantity" disabled></td>
                                     <td>
                                         <div class="form-check">

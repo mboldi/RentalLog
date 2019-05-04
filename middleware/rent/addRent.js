@@ -12,15 +12,19 @@ module.exports = function (objectrepository) {
 
         let quantities = [];
 
-        if(typeof req.body['renterName'] !== 'undefined') {
+        res.local.rentChange = 0;
+
+        if (typeof req.body['renterName'] !== 'undefined') {
             deviceModel.find({}, function (err, result) {
                 let numofItems = 0;
                 let totalValue = 0;
 
                 result.forEach(device => {
-                    if(req.body[device._id] !== "0") {
-                        quantities.push({   'id': device._id,
-                                            'quantity': req.body[device._id]});
+                    if (req.body[device._id] !== "0") {
+                        quantities.push({
+                            'id': device._id,
+                            'quantity': req.body[device._id]
+                        });
 
                         numofItems += parseInt(req.body[device._id]);
                         totalValue += parseInt(device.value) * parseInt(req.body[device._id]);
@@ -49,10 +53,9 @@ module.exports = function (objectrepository) {
                     }
                 );
 
-
+                res.local.rentChange = 1;
             });
-        }
-        else {
+        } else {
             return next();
         }
     };

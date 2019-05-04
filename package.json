@@ -4,6 +4,7 @@
   "description": "",
   "main": "app.js",
   "dependencies": {
+    "async": "^2.6.2",
     "body-parser": "^1.19.0",
     "dateformat": "^3.0.3",
     "ejs": "^2.6.1",

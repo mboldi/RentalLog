@@ -11,10 +11,9 @@ module.exports = function (objectrepository) {
 
     return function (req, res, next) {
         rentModel.find({}, function (err, result) {
-            if(typeof result === "undefined") {
+            if (typeof result === "undefined") {
                 res.local = [];
-            }
-            else {
+            } else {
                 res.local = result;
             }
 
