@@ -37,7 +37,8 @@
                         <td><%= rent.planned_back_date %></td>
                         <td><%= rent.actual_back_date %></td>
                         <td><%= rent.num_of_items %></td>
-                        <td style="text-align: center"><i class="far <% if(typeof rent.actual_back_date !== 'undefined') {  %> fa-check-square green <%} else { %> fa-times-circle red <% } %>  "></i></td>
+                        <td style="text-align: center"><i class="far <% if(typeof rent.actual_back_date !== 'undefined') {  %> fa-check-square green <%} else { %> fa-times-circle red <% } %>  "
+                                                          style=" color: <% if(typeof rent.actual_back_date !== 'undefined') {  %> green <%} else { %> red <% } %>"></i></td>
                         <td><a class="btn btn-info" href="/rent/view/<%= rent._id%>">Megtekintés</a></td>
                     </tr>
                 <%  }); %>

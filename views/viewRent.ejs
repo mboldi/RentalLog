@@ -3,7 +3,8 @@
 
     <div class="container my-4">
         <div class="row">
-            <h1>Bérlés adatai <i class="far <% if(typeof data.actual_back_date !== 'undefined') {  %> fa-check-square green <%} else { %> fa-times-circle red <% } %>"></i></h1>
+            <h1>Bérlés adatai <i class="far <% if(typeof data.actual_back_date !== 'undefined') {  %> fa-check-square green <%} else { %> fa-times-circle red <% } %>"
+                                 style=" color: <% if(typeof data.actual_back_date !== 'undefined') {  %> green <%} else { %> red <% } %>"></i></h1>
         </div>
 
         <div class="form-row">
@@ -34,7 +35,6 @@
         </div>
 
         <div class="container">
-
             <div class="row">
                 <table class="table table-striped">
                     <thead>
