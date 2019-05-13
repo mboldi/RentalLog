@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="hu" dir="ltr">
+<head>
+    <meta charset="utf-8">
+    <title>Szállítólevél</title>
+</head>
+<body style="font-family: times-new-roman">
+<h1 style="font-size: 20px; text-align: center; font-weight: bold; margin-bottom: 2px">Szállítólevél</h1>
+<p style="font-size: 10px; text-align: center; margin-top: 0px">- Készült négy példányban -</p>
+
+<h1 style="font-size: 20px; text-align: center; font-weight: bold; margin-bottom: 10px; margin-top: 15px">Schönherz
+    Kollégium</h1>
+
+<table border="1" style="border: 1px solid black; border-collapse: collapse;" align=center>
+    <tr>
+        <td style="width: 300px">
+            <p style="font-size: 14px; margin: 0px 40px 0px 3px; font-weight: bold">Szállító:</p>
+            <p style="font-size: 12px; margin: 20px 40px 0px 3px">Kör neve: <%= data.groupName %></p>
+            <p style="font-size: 12px; margin: 15px 40px 10px 3px">Körvezető: <%= data.groupLeader %></p>
+        </td>
+        <td style="width: 80px"></td>
+        <td style="width: 300px">
+            <p style="font-size: 14px; margin: 0px 40px 0px 3px; font-weight: bold">Felelősségvállaló:</p>
+            <p style="font-size: 12px; margin: 20px 40px 0px 3px">Személy: <%= data.responsible %></p>
+            <p style="font-size: 12px; margin: 15px 40px 10px 3px">Szigsz.: <%= data.responsibleId %></p>
+        </td>
+    </tr>
+</table>
+
+<div class="informations" style="font-size: 12px; margin-left: 20px">
+    <p style="margin-top: 15px"><b>Kiszállítás időpontja: </b> <%= data.outDate %> (Év, Hónap, Nap)</p>
+    <p style="margin-top: 15px"><b>Visszaszállítás időpontja: </b> <%= data.plannedBackDate %> (Év, Hónap, Nap)</p>
+    <p style="margin-top: 15px">A szállítón szereplő eszközöknek a fent jelzett időpontban a <b>Schönherz
+            Kollégiumból</b> történő szállítására engedélyt kérek.</p>
+    <p style="margin-top: 15px">Kelt: <%= data.today %></p>
+</div>
+
+<table align=center style="text-align: center; font-size: 12px; margin-top: 20px">
+    <tr>
+        <td style="width: 350px">
+            <p style="margin: 0px">...............................................</p>
+            <p style="margin-top: 5px"><b>Körvezető</b></p>
+        </td>
+        <td style="width: 350px">
+            <p style="margin: 0px">...............................................</p>
+            <p style="margin-top: 5px"><b>Felelősségvállaló</b></p>
+        </td>
+    </tr>
+</table>
+
+<p style="margin-top: 15px; font-size: 12px; margin-left: 15px">A szállítón szereplő eszközöknek a fent jelzett
+    időpontban a <b>Schönherz Kollégiumból</b> történő szállítását engedélyezem.</p>
+
+<table align=center style="text-align: center; font-size: 12px; margin-top: 20px">
+    <tr>
+        <td style="width: 350px">
+            <p style="margin: 0px">...............................................</p>
+            <p style="margin-top: 5px; margin-bottom: 0px"><b><%= data.uzFel %></b></p>
+            <p style="margin-top: 0px"><b>Üzemeltetési Felelős</b></p>
+        </td>
+        <td style="width: 350px">
+            <p style="margin: 0px">...............................................</p>
+            <p style="margin-top: 5px; margin-bottom: 0px"><b><%= data.opGuy %></b></p>
+            <p style="margin-top: 0px"><b>BME-Kollégiumok Üzemeltetési Osztály</b></p>
+        </td>
+    </tr>
+</table>
+
+<table border="1"
+       style="border: 1px solid black; border-collapse: collapse; text-align: center; margin-top: 15px; font-size: 12px; font-weight: normal"
+       align=center>
+    <tr>
+        <th style="width: 50px;">db</th>
+        <th style="width: 290px;">megnevezés</th>
+        <th style="width: 50px;">db</th>
+        <th style="width: 290px;">megnevezés</th>
+    </tr>
+
+    <% data.deviceList.forEach( function(device) { %>
+        <tr>
+            <td><%= device.quantity1 %></td>
+            <td><%= device.name1 %></td>
+            <td><%= device.quantity2 %></td>
+            <td><%= device.name2 %></td>
+        </tr>
+    <% }); %>
+</table>
+
+<table align=center style="text-align: center; font-size: 12px; margin-top: 20px">
+    <tr>
+        <td style="width: 350px; text-align: right; vertical-align:top">
+            <p style="margin: 0px">Látta: </p>
+        </td>
+        <td style="width: 200px">
+            <p style="margin: 0px">...............................................</p>
+            <p style="margin-top: 5px; margin-bottom: 0px"><b>Üzemeltető</b></p>
+        </td>
+    </tr>
+</table>
+
+</body>
+</html>

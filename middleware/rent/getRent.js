@@ -15,7 +15,10 @@ module.exports = function (objectrepository) {
             {_id: req.params.id},
             function (err, result) {
                 if(typeof result !== 'undefined') {
-                    res.local = result;
+                    if(typeof res.local === 'undefined')
+                        res.local = {};
+
+                    res.local.rent = result;
                     res.local.devices = [];
 
                     let ind = 1;

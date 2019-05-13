@@ -1,103 +1,174 @@
 <% include header %>
 <% include navBar %>
 
-    <div class="container my-4">
+<div class="container my-4">
+    <div class="row">
+        <h1>Bérlés adatai <i
+                    class="far <% if(typeof data.rent.actual_back_date !== 'undefined') { %> fa-check-square green <% } else { %> fa-times-circle red <% } %>"
+                    style=" color: <% if(typeof data.actual_back_date !== 'undefined') { %> green <% } else { %> red <% } %>"></i>
+        </h1>
+    </div>
+
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label for="renter">Bérlő</label>
+            <input type="text" class="form-control mr-sm-2" id="renter" value="<%= data.rent.renter_name %>" disabled>
+        </div>
+    </div>
+
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label for="renter_email">Bérlő e-mail címe</label>
+            <input type="email" class="form-control mr-sm-2" id="renter_email" value="<%= data.rent.renter_email %>"
+                   disabled>
+        </div>
+    </div>
+
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label for="renter_email">Kiadta: </label>
+            <input type="text" class="form-control mr-sm-2" id="issuer_name" value="<%= data.rent.issuer_name %>" disabled>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-3">
+            <label>Bérelt eszközök:</label>
+        </div>
+    </div>
+
+    <div class="container">
         <div class="row">
-            <h1>Bérlés adatai <i class="far <% if(typeof data.actual_back_date !== 'undefined') {  %> fa-check-square green <%} else { %> fa-times-circle red <% } %>"
-                                 style=" color: <% if(typeof data.actual_back_date !== 'undefined') {  %> green <%} else { %> red <% } %>"></i></h1>
-        </div>
-
-        <div class="form-row">
-            <div class="form-group col-md-6">
-                <label for="renter">Bérlő</label>
-                <input type="text" class="form-control mr-sm-2" id="renter" value="<%= data.renter_name %>" disabled>
-            </div>
-        </div>
-
-        <div class="form-row">
-            <div class="form-group col-md-6">
-                <label for="renter_email">Bérlő e-mail címe</label>
-                <input type="email" class="form-control mr-sm-2" id="renter_email" value="<%= data.renter_email %>" disabled>
-            </div>
-        </div>
-
-        <div class="form-row">
-            <div class="form-group col-md-6">
-                <label for="renter_email">Kiadta: </label>
-                <input type="text" class="form-control mr-sm-2" id="issuer_name" value="<%= data.issuer_name %>" disabled>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-sm-3">
-                <label>Bérelt eszközök:</label>
-            </div>
-        </div>
-
-        <div class="container">
-            <div class="row">
-                <table class="table table-striped">
-                    <thead>
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Eszköz neve</th>
+                    <th scope="col">Érték/db</th>
+                    <th scope="col">Bérelt mennyiség(db)</th>
+                </tr>
+                </thead>
+                <tbody>
+                <% data.devices.forEach(function (device) { %>
                     <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Eszköz neve</th>
-                        <th scope="col">Érték/db</th>
-                        <th scope="col">Bérelt mennyiség(db)</th>
+                        <th scope="col"><%= device['ind'] %></th>
+                        <th scope="col"><%= device['name'] %></th>
+                        <td><%= device['value'] %> Ft</td>
+                        <td><input class="form-control" type="number" placeholder="<%= device['rentQt'] %>"
+                                   aria-label="quantity" disabled></td>
                     </tr>
-                    </thead>
-                    <tbody>
-                        <% data.devices.forEach(function (device) { %>
-                            <tr>
-                                <th scope="col"><%= device['ind'] %></th>
-                                <th scope="col"><%= device['name'] %></th>
-                                <td><%= device['value'] %> Ft</td>
-                                <td><input class="form-control" type="number" placeholder="<%= device['rentQt'] %>" aria-label="quantity" disabled></td>
-                            </tr>
-                        <%});%>
-                    </tbody>
-                </table>
-            </div>
+                <% }); %>
+                </tbody>
+            </table>
         </div>
+    </div>
 
+    <div class="form-row">
+        <div class="form-group col-md-4">
+            <label for="renter">Kiadás időpontja:</label>
+            <input type="text" class="form-control" id="bringBackDate" placeholder="<%= data.rent.out_date %>" disabled>
+        </div>
+    </div>
+
+    <% if(typeof data.actual_back_date !== 'undefined') { %>
         <div class="form-row">
             <div class="form-group col-md-4">
-                <label for="renter">Kiadás időpontja:</label>
-                <input type="text" class="form-control" id="bringBackDate" placeholder="<%= data.out_date %>" disabled>
+                <label>Visszaérkezés: </label>
+                <input type="text" class="form-control" id="sumPrice" placeholder="<%= data.rent.actual_back_date %>"
+                       disabled>
             </div>
         </div>
-
-        <% if(typeof data.actual_back_date !== 'undefined') {  %>
-            <div class="form-row">
-                <div class="form-group col-md-4">
-                    <label>Visszaérkezés: </label>
-                    <input type="text" class="form-control" id="sumPrice" placeholder="<%= data.actual_back_date %>" disabled>
-                </div>
-            </div>
-        <% } else { %>
+    <% } else { %>
 
         <div class="form-row">
             <div class="form-group col-md-4">
                 <label for="renter">Visszavételezés várható időpontja:</label>
-                <input type="text" class="form-control" id="bringBackDate" placeholder="<%= data.planned_back_date %>" disabled>
+                <input type="text" class="form-control" id="bringBackDate" placeholder="<%= data.rent.planned_back_date %>"
+                       disabled>
             </div>
         </div>
 
-        <%}%>
+    <% } %>
 
-        <div class="form-row">
-            <div class="form-group col-md-4">
-                <label>A bérlés összértéke: </label>
-                <input type="text" class="form-control" id="sumPrice" placeholder="<%= data.total_value %> Ft" disabled>
-            </div>
+    <div class="form-row">
+        <div class="form-group col-md-4">
+            <label>A bérlés összértéke: </label>
+            <input type="text" class="form-control" id="sumPrice" placeholder="<%= data.rent.total_value %> Ft" disabled>
         </div>
-
-        <div class="form-row form-inline">
-            <a class="btn btn-info mr-sm-2" href="/rent/list">OK</a>
-            <% if(typeof data.actual_back_date === 'undefined') {  %>
-                <a class="btn btn-outline-warning my-2" href="/rent/back/<%= data.id %>">Visszavétel</a>
-            <% } %>
-        </div>
-
     </div>
+
+    <div class="row form-inline">
+        <a class="btn btn-info mr-sm-2" href="/rent/list">OK</a>
+        <% if(typeof data.rent.actual_back_date === 'undefined') { %>
+            <a class="btn btn-outline-warning mr-sm-2" href="/rent/back/<%= data.rent.id %>">Visszavétel</a>
+            <div class="col-sm-8">
+                &nbsp;
+            </div>
+            <button type="button" class="btn btn-outline-info mr-sm-2" data-toggle="modal"
+                    data-target="#generatePdfModal">SCH kiviteli
+                generálása
+            </button>
+        <% } %>
+    </div>
+
+</div>
+
+<div class="modal fade" id="generatePdfModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Kiviteli generálása</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form action="/rent/pdf/<%= data.rent.id %>" method="post">
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="group">Kör</label>
+                        <input type="text" name="groupName" class="form-control" id="group" aria-describedby="emailHelp"
+                               value="Budavári Schönherz Stúdió">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="groupLeader">Körvezető</label>
+                        <input type="text" name="groupLeader" class="form-control" id="groupLeader" aria-describedby="groupLeader"
+                               value="Pálinkás Péter">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="responsible">Felelősségvállaló</label>
+                        <input type="text" name="responsible" class="form-control" id="responsible" aria-describedby="groupLeader"
+                               value="<%= data.rent.renter_name %>">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="responsibleId">Felelősségvállaló szig. szám</label>
+                        <input type="text" name="responsibleId" class="form-control" id="responsibleId" aria-describedby="groupLeader"
+                               placeholder="A felelősségvállaló személyi igazolvány száma">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="uzFel">KB Üzemeltetési felelős</label>
+                        <input type="text" name="uzFel" class="form-control" id="uzFel" aria-describedby="groupLeader"
+                               value="Varga Dániel">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="opGuy">BME-Kollégiumok Üzemeltetési Osztály képviselője</label>
+                        <input type="text" name="opGuy" class="form-control" id="opGuy" aria-describedby="groupLeader"
+                               value="Csiki Tibor">
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Mégsem</button>
+                    <button type="submit" class="btn btn-primary">Generálás</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
 
 <% include footer %>

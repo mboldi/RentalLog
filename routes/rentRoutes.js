@@ -7,10 +7,16 @@ const getRentMW = require('../middleware/rent/getRent');
 const getRentListMW = require('../middleware/rent/getRentList');
 const rentBackMW = require('../middleware/rent/rentBack');
 const countOutsMW = require('../middleware/device/countOuts');
+const generatePdfMW = require('../middleware/rent/genPdf');
+const sendPdfMW = require('../middleware/rent/pdfSend');
+const getUserDataMW = require('../middleware/user/getUserData');
+const getRentedItemsMW = require('../middleware/rent/getRentedItems')
 
 const deviceModel = require('../models/device');
 const rentModel = require('../models/rent');
 const userModel = require('../models/user');
+
+const open = require('open');
 
 module.exports = function (app) {
 
@@ -29,11 +35,27 @@ module.exports = function (app) {
         renderMW(objectRepository, 'rentList')
     );
 
+    app.use('/rent/pdf/:id',
+        authMW(objectRepository),
+        getUserDataMW(objectRepository),
+        getRentedItemsMW(objectRepository),
+        generatePdfMW(objectRepository),
+        function (req, res) {
+            res.redirect('/rent/viewpdf/' + req.params.id);
+        }
+    );
+
+    app.use('/rent/viewpdf/:id',
+        authMW(objectRepository),
+        sendPdfMW(objectRepository)
+    );
+
     /*
     view rent with given id
      */
     app.get('/rent/view/:id',
         authMW(objectRepository),
+        getUserDataMW(objectRepository),
         getRentMW(objectRepository),
         renderMW(objectRepository, 'viewRent')
     );
