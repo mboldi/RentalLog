@@ -5,7 +5,8 @@ let Device = db.model('device', {
     name: String,
     value: Number,
     quantity: Number,
-    out: Number
+    out: Number,
+    deleted: Boolean
 });
 
 module.exports = Device;

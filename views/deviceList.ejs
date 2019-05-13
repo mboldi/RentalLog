@@ -41,7 +41,7 @@
             </tr>
             </thead>
             <tbody>
-                <% data.forEach(function(device) {%>
+                <% data.forEach(function(device) { if (!device.deleted) {%>
                     <tr>
                         <th scope="row"><%= device.name %></th>
                         <td><%= device.value%> Ft</td>
@@ -50,7 +50,7 @@
                         <td><a href="/device/edit/<%= device._id %>" class="btn btn-warning">Szerkesztés</a></td>
                         <td><a href="/device/<%= device._id %>/delete/" class="btn btn-danger">Törlés</a></td>
                     </tr>
-                <% }); %>
+                <% } }); %>
             </tbody>
         </table>
     </div>

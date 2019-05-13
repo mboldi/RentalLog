@@ -55,14 +55,14 @@
                         </tr>
                         </thead>
                         <tbody>
-                            <% data.forEach(function(device) {%>
+                            <% data.forEach(function(device) { if(!device.deleted) {%>
                                 <tr>
                                     <th scope="row"><%= device.name %></th>
                                     <td><%= device.value%> Ft</td>
                                     <td scope="col"><input class="form-control" type="number" name="<%= device._id %>" value="0" min="0" max="<%= device.quantity%>" aria-label="quantity"></td>
                                     <!--<td scope="col"><button class="btn btn-outline-warning" type="remove"><i class="far fa-trash-alt"></i></button></td>-->
                                 </tr>
-                            <% }); %>
+                            <% } }); %>
                         </tbody>
                     </table>
                 </div>
