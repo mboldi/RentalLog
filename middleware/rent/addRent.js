@@ -16,11 +16,16 @@ module.exports = function (objectrepository) {
 
         if (typeof req.body['renterName'] !== 'undefined') {
             deviceModel.find({}, function (err, result) {
+                if (err) {
+                    console.log(err);
+                    return next();
+                }
+
                 let numofItems = 0;
                 let totalValue = 0;
 
                 result.forEach(device => {
-                    if (req.body[device._id] !== "0") {
+                    if (req.body[device._id] !== "0" && !device.deleted) {
                         quantities.push({
                             'id': device._id,
                             'quantity': req.body[device._id]
@@ -48,12 +53,20 @@ module.exports = function (objectrepository) {
                         newRent.issuer_name = result.name;
 
                         newRent.save(function (err) {
+                            if (err) console.log(err);
+                            res.local.rentChange = 1;
+                        })
+                    })
+                    .exec()
+                    .then(function (result) {
                             return res.redirect('/rent/list');
-                        });
-                    }
-                );
+                        }
+                    )
+                    .catch(function (err) {
+                        console.log(err);
+                        return next();
+                    })
 
-                res.local.rentChange = 1;
             });
         } else {
             return next();

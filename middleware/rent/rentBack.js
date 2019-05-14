@@ -27,7 +27,7 @@ module.exports = function (objectrepository) {
 
             if(numDevicesBack === res.local.devices.length) {
                 rentModel.findOne(
-                    {_id: res.local._id},
+                    {_id: res.local.rent._id},
                     function (err, result) {
                         result.actual_back_date = dateFormat(Date.now(), "yyyy-mm-dd");
 

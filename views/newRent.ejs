@@ -10,14 +10,14 @@
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="renter">Bérlő</label>
-                    <input type="name" name="renterName" class="form-control mr-sm-2" id="renter" placeholder="Bérlő neve">
+                    <input type="name" name="renterName" class="form-control mr-sm-2" id="renter" placeholder="Bérlő neve" autocomplete="off">
                 </div>
             </div>
 
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="renter_email">Bérlő e-mail címe</label>
-                    <input type="email" name="renterEmail" class="form-control mr-sm-2" id="renter_email" placeholder="Bérlő e-mail címe">
+                    <input type="email" name="renterEmail" class="form-control mr-sm-2" id="renter_email" placeholder="Bérlő e-mail címe" autocomplete="off">
                 </div>
             </div>
 
@@ -34,7 +34,7 @@
                             <input class="col-8 form-control mr-sm-2 dropdown-toggle" id="searchDevices" autocomplete="off" data-toggle="dropdown" type="search" placeholder="Keresés" aria-label="Search" aria-haspopup="true" aria-expanded="false">
 
                             <div class="dropdown-menu col-8" aria-labelledby="searchDevices">
-                                <% data.forEach(function(device) {%>
+                                <% data.devices.forEach(function(device) {%>
                                     <a class="dropdown-item" href="#"><%= device.name %></a>
                                 <% }); %>
                             </div>
@@ -55,7 +55,7 @@
                         </tr>
                         </thead>
                         <tbody>
-                            <% data.forEach(function(device) { if(!device.deleted) {%>
+                            <% data.devices.forEach(function(device) { if(!device.deleted) {%>
                                 <tr>
                                     <th scope="row"><%= device.name %></th>
                                     <td><%= device.value%> Ft</td>
