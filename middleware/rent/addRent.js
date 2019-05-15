@@ -53,19 +53,12 @@ module.exports = function (objectrepository) {
                         newRent.issuer_name = result.name;
 
                         newRent.save(function (err) {
-                            if (err) console.log(err);
-                            res.local.rentChange = 1;
-                        })
-                    })
-                    .exec()
-                    .then(function (result) {
                             return res.redirect('/rent/list');
-                        }
-                    )
-                    .catch(function (err) {
-                        console.log(err);
-                        return next();
-                    })
+                        });
+                    }
+                );
+
+                res.local.rentChange = 1;
 
             });
         } else {
