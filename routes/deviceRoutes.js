@@ -13,7 +13,7 @@ const userModel = require('../models/user');
 
 module.exports = function (app) {
 
-    let objectRepository = {
+    const objectRepository = {
         userModel: userModel,
         rentModel: rentModel,
         deviceModel: deviceModel
@@ -35,6 +35,12 @@ module.exports = function (app) {
         authMW(objectRepository),
         getDeviceMW(objectRepository),
         updateDeviceMW(objectRepository),
+        function(req, res, next) {
+            if(res.local.redir)
+                return res.redirect('/device/list');
+
+            return next();
+        },
         renderMW(objectRepository, 'editDevice')
     );
 
@@ -44,6 +50,12 @@ module.exports = function (app) {
     app.use('/device/new',
         authMW(objectRepository),
         updateDeviceMW(objectRepository),
+        function(req, res, next) {
+            if(res.local.redir)
+                return res.redirect('/device/list');
+
+            return next();
+        },
         renderMW(objectRepository, 'newDevice')
     );
 

@@ -102,3 +102,9 @@ Middlewares:
         getRentListMW
         rentBackMW
         addRentMW
+
+
+Tesztelés:
+    -getUserDataMW
+    -getDeviceMW
+    -updateDeviceMW

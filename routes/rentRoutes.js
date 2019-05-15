@@ -16,8 +16,6 @@ const deviceModel = require('../models/device');
 const rentModel = require('../models/rent');
 const userModel = require('../models/user');
 
-const open = require('open');
-
 module.exports = function (app) {
 
     let objectRepository = {

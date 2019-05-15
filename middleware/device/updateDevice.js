@@ -12,9 +12,13 @@ module.exports = function (objectrepository) {
     return function (req, res, next) {
         let device = new deviceModel();
 
+        if(typeof res.local === 'undefined')
+            res.local = {};
+
         if ((typeof req.query.deviceName === 'undefined') ||
             (typeof req.query.deviceValue === 'undefined') ||
             (typeof req.query.deviceQuantity === 'undefined')) {
+            res.local.err = 'not enough values';
             return next();
         }
 
@@ -25,19 +29,32 @@ module.exports = function (objectrepository) {
             device.out = 0;
 
             device.save(function(err) {
-                return res.redirect('/device/list');
+                res.local.device = device;
+                res.local.redir = true;
+                return next();
             });
         }
         else {
             deviceModel.findOne(
                 {_id: req.params.id},
                 function (err, result) {
+                    if(err){
+                        res.local.err = 'error in findOne';
+                        return next();
+                    }
+
+                    if(typeof result === 'undefined') {
+                        res.local.err = 'item not found';
+                        return next();
+                    }
+
                     result.name = req.query.deviceName;
                     result.value = req.query.deviceValue;
                     result.quantity = req.query.deviceQuantity;
 
                     result.save(function (err) {
-                        return res.redirect('/device/list');
+                        res.local.redir = true;
+                        return next();
                     });
                 }
             )
