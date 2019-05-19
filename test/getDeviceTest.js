@@ -4,7 +4,7 @@ const expect = require('chai').expect;
 const getDeviceMW = require('../middleware/device/getDevice');
 
 describe('Get device data', function () {
-    it('not getting result in findOne', function () {
+    it('not getting result in findOne', function (done) {
         let req = {
             params: {
                 id: 'nagyonID'
@@ -22,10 +22,11 @@ describe('Get device data', function () {
 
         getDeviceMW(objRepo)(req, res, function () {
             expect(res.local).to.eql({});
+            done();
         })
     });
 
-    it('getting device and saving it to res.local', function () {
+    it('getting device and saving it to res.local', function (done) {
         let req = {
             params: {
                 id: 'nagyonID'
@@ -43,10 +44,11 @@ describe('Get device data', function () {
 
         getDeviceMW(objRepo)(req, res, function () {
             expect(res.local).to.eql('device');
+            done();
         })
     });
 
-    it('error in findOne', function () {
+    it('error in findOne', function (done) {
         let req = {
             params: {
                 id: 'nagyonID'
@@ -64,6 +66,7 @@ describe('Get device data', function () {
 
         getDeviceMW(objRepo)(req, res, function () {
             expect(res.local.error).to.eql('error in findOne');
+            done();
         });
     });
 });

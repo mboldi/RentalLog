@@ -4,7 +4,7 @@ const expect = require('chai').expect;
 const getUserDataMW = require('../middleware/user/getUserData');
 
 describe('GetUserData', function () {
-    it('userdata should be bela', function () {
+    it('userdata should be bela', function (done) {
         const objRepo = {
             userModel: {
                 findOne: function(params, func) {
@@ -19,10 +19,11 @@ describe('GetUserData', function () {
         getUserDataMW(objRepo)(req, res, function (err) {
             expect(res.local.userData).to.be.equal('bela');
             expect(err).to.eql(undefined);
+            done();
         });
     });
 
-    it('there should be an error', function () {
+    it('there should be an error', function (done) {
         let objRepo = {
             userModel: {
                 findOne: function(params, func) {
@@ -37,6 +38,7 @@ describe('GetUserData', function () {
         getUserDataMW(objRepo)(req, res, function (err) {
             expect(res.local.userData).to.eql(undefined);
             expect(err).to.eql('err');
+            done();
         });
     });
 });
