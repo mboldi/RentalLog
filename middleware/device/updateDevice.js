@@ -38,7 +38,7 @@ module.exports = function (objectrepository) {
             deviceModel.findOne(
                 {_id: req.params.id},
                 function (err, result) {
-                    if(typeof err !== "undefined"){
+                    if(err !== null){
                         res.local.err = 'error in findOne';
                         return next();
                     }

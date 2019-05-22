@@ -14,10 +14,13 @@
                 </div>
             </div>
 
+            <label for="device_value">Értéke</label>
             <div class="form-row">
-                <div class="form-group col-md-6">
-                    <label for="device_value">Értéke</label>
-                    <input type="number" name="deviceValue" class="form-control mr-sm-2" id="device_value" value="<%= data.value%>">
+                <div class="input-group col-md-6">
+                    <input id="device_value" type="number" name="deviceValue" class="form-control" aria-label="device_value" aria-describedby="basic-addon2" value="<%= data.value%>">
+                    <div class="input-group-append">
+                        <span class="input-group-text" id="basic-addon2">Ft</span>
+                    </div>
                 </div>
             </div>
 
